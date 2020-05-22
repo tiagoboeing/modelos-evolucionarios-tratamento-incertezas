@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jsmile-1.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jsmile-1.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/lib" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
