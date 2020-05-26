@@ -1,9 +1,15 @@
-package Aula21mai20;
+package exercicio;
 
-import smile.Network;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main extends Application {
+
+    private static void startLicense(){
+        System.out.println("Starting license of Smile");
         new smile.License(
                 "SMILE LICENSE cdd9da38 90b9c16d 4d00c0d4 " +
                         "THIS IS AN ACADEMIC LICENSE AND CAN BE USED " +
@@ -22,20 +28,25 @@ public class Main {
                         -47,109,94,-44,1,-4,-72,38,-39,-128,40,-50,-120,-95,63,25
                 }
         );
+    }
 
-        String resultNode = "Gato";
+    public static void main(String[] args) {
+        startLicense();
 
-        Network net = new Network();
-        net.readFile("gato.xdsl");
-        net.setEvidence("Espirro", "V");
-        net.updateBeliefs();
-        double[] beliefs = net.getNodeValue(resultNode);
-        for(int i=0; i < beliefs.length; i++){
-            System.out.format("%s = %s \n",
-                    net.getOutcomeId(resultNode, i),
-                    beliefs[i]
-            );
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            Pane root = (Pane) FXMLLoader.load(getClass().getResource("view/View.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Modelos Evolucionários e Tratamento de Incertezas");
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-
     }
 }
